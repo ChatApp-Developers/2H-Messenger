@@ -1,1 +1,1 @@
-Comoleting server and tkinter ui
+Completing server and tkinter ui
