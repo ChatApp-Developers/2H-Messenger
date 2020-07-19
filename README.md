@@ -1,1 +1,1 @@
-# rep
+Comoleting server and tkinter ui
