@@ -9,9 +9,12 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from SP import Ui_SPBackground
 
 
 class Ui_FPBackground(object):
+        
+
     def setupUi(self, FPBackground):
         FPBackground.setObjectName("FPBackground")
         FPBackground.setEnabled(True)
@@ -159,10 +162,12 @@ class Ui_FPBackground(object):
         self.FPcentralwidget.setObjectName("FPcentralwidget")
         self.FPBoxName = QtWidgets.QLineEdit(self.FPcentralwidget)
         self.FPBoxName.setGeometry(QtCore.QRect(270, 170, 151, 31))
-        self.FPBoxName.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(214, 255, 191, 255), stop:1 rgba(214, 255, 191, 255));\n"
+        self.FPBoxName.setStyleSheet("\n"
 "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(211, 233, 255, 255), stop:1 rgba(242, 243, 255, 0));\n"
 "background-image: url(:/img/PicsArt_11-17-11.40.40.jpg);")
         self.FPBoxName.setObjectName("FPBoxName")
+
+
         self.FPButtonJoin = QtWidgets.QPushButton(self.FPcentralwidget)
         self.FPButtonJoin.setGeometry(QtCore.QRect(430, 170, 93, 31))
         self.FPButtonJoin.setMouseTracking(False)
@@ -173,6 +178,11 @@ class Ui_FPBackground(object):
         self.FPButtonJoin.setDefault(False)
         self.FPButtonJoin.setFlat(False)
         self.FPButtonJoin.setObjectName("FPButtonJoin")
+
+        self.FPButtonJoin.clicked.connect (self.openWindow)
+
+
+
         self.FPTextYourName = QtWidgets.QLabel(self.FPcentralwidget)
         self.FPTextYourName.setGeometry(QtCore.QRect(190, 170, 71, 20))
         self.FPTextYourName.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(172, 217, 255, 0), stop:1 rgba(172, 255, 175, 0));\n"
@@ -197,4 +207,20 @@ class Ui_FPBackground(object):
         self.FPButtonJoin.setText(_translate("FPBackground", "Join"))
         self.FPTextYourName.setText(_translate("FPBackground", "Your Name:"))
         self.FPLabel.setText(_translate("FPBackground", "2H Messenger"))
+
+    def openWindow(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_SPBackground()
+        self.ui.setupUi(self.window)
+        self.window.show()
 import img_rc
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    FPBackground = QtWidgets.QMainWindow()
+    ui = Ui_FPBackground()
+    ui.setupUi(FPBackground)
+    FPBackground.show()
+    sys.exit(app.exec_())

@@ -232,3 +232,13 @@ class Ui_SPBackground(object):
         self.SPTextPublicChat.setText(_translate("SPBackground", "Public Chat"))
         self.SPLabel.setText(_translate("SPBackground", "2H Messenger"))
 import img_rc
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    SPBackground = QtWidgets.QMainWindow()
+    ui = Ui_SPBackground()
+    ui.setupUi(SPBackground)
+    SPBackground.show()
+    sys.exit(app.exec_())
